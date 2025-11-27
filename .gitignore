@@ -1,0 +1,20 @@
+# Build directories
+build/
+
+# Docker-compose results
+results/
+
+# Coverage files
+*.gcda
+*.gcno
+*.gcov
+*.profraw
+*.profdata
+*.gz
+*.xz
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*~

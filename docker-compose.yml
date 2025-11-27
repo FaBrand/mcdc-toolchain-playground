@@ -1,0 +1,16 @@
+services:
+  mcdc-demo:
+    image: mcdc-cov:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      extra_hosts:
+        - host.docker.internal:host-gateway  # Deal with proxies
+    volumes:
+      - mcdc-results:/mcdc-demo/build
+      - ./results:/mcdc-demo/results:rw
+    command: sh -c "make all && mkdir -p results && cp -r build/* results/ && echo '\n=== Build artifacts saved to ./results/ and volume ===' && ls -lah results/"
+
+volumes:
+  mcdc-results:
+    driver: local
